@@ -50,8 +50,12 @@ mamba create --name aidge python=3.8
 mamba activate aidge
 git clone --recursive https://gitlab.eclipse.org/eclipse/aidge/aidge.git
 cd aidge && pip install .
+cd aidge/aidge_core
+pip install .
+cd ../aidge_backend_cpu/
+pip install .
 
-# test
+# il faut re-charger l'environnement *aidge* puis tester avec
 python -c "import aidge_core; import aidge_backend_cpu; print(aidge_core.Tensor.get_available_backends())"
 ```
 Pour les mesures en transport optimal:
